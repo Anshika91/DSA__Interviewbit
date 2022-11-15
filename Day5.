@@ -1,0 +1,77 @@
+1. What is a linked list data structure? What are the applications for the Linked list?
+A linked list can be thought of as a series of linked nodes (or items) that are connected by links (or paths).
+Each link represents an entry into the linked list, and each entry points to the next node in the sequence. 
+The order in which nodes are added to the list is determined by the order in which they are created.
+
+Following are some applications of linked list data structure:
+Stack, Queue, binary trees, and graphs are implemented using linked lists.
+Dynamic management for Operating System memory.
+Round robin scheduling for operating system tasks.
+Forward and backward operation in the browser.
+
+<------------------------------------------------------------------------------------------------------------------>
+
+2. Elaborate on different types of Linked List data structures?
+Following are different types of linked lists:
+
+1. Singly Linked List: A singly linked list is a data structure that is used to store multiple items. 
+The items are linked together using the key. 
+The key is used to identify the item and is usually a unique identifier. 
+In a singly linked list, each item is stored in a separate node. The node can be a single object or it can be a collection of objects. 
+When an item is added to the list, the node is updated and the new item is added to the end of the list. 
+When an item is removed from the list, the node that contains the removed item is deleted and its place is taken by another node. 
+The key of a singly linked list can be any type of data structure that can be used to identify an object. For example, it could be an integer, 
+a string, or even another singly linked list. Singly-linked lists are useful for storing many different types of data. For example,
+they are commonly used to store lists of items such as grocery lists or patient records. 
+They are also useful for storing data that is time sensitive such as stock market prices or flight schedules.
+
+2. Doubly Linked List: A doubly linked list is a data structure that allows for two-way data access such that each node in the list points to 
+the next node in the list and also points back to its previous node. 
+In a doubly linked list, each node can be accessed by its address, and the contents of the node can be accessed by its index.
+It's ideal for applications that need to access large amounts of data in a fast manner.
+A disadvantage of a doubly linked list is that it is more difficult to maintain than a single-linked list. 
+In addition, it is more difficult to add and remove nodes than in a single-linked list.
+
+3. Circular Linked List: A circular linked list is a unidirectional linked list where each node points to its next node and the
+last node points back to the first node, which makes it circular.
+
+4. Doubly Circular Linked List: A doubly circular linked list is a linked list where each node points to its next node and its previous node and the last node points 
+back to the first node and first node’s previous points to the last node.
+
+5. Header List: A list that contains the header node at the beginning of the list, is called the header-linked list.
+This is helpful in calculating some repetitive operations like the number of elements in the list etc.
+
+<----------------------------------------------------------------------------------------------------------------------------->
+
+3. Difference between Array and Linked List.
+Arrays:::::
+An array is a collection of data elements of the same type.
+It keeps the data elements in a single memory.
+The memory size of an array is fixed and cannot be changed during runtime.
+An array's elements are not dependent on one another.
+It is easier and faster to access an element in an array.
+Memory utilization is ineffective in the case of an array.
+Operations like insertion and deletion take longer time in an array.
+
+LinkedList:::
+A linked list is a collection of entities known as nodes. The node is divided into two sections: data and address.
+It stores elements at random, or anywhere in the memory.
+The memory size of a linked list is allocated during runtime.
+Linked List elements are dependent on one another.
+In the linked list, it takes time to access an element.
+Memory utilization is effective in the case of an array.
+Operations like insertion and deletion are faster in the linked list.
+
+<---------------------------------------------------------------------------------------------------------------------------->
+
+4. What is an asymptotic analysis of an algorithm?
+Asymptotic analysis of an algorithm defines the run-time performance as per its mathematical boundations. 
+Asymptotic analysis helps us articulate the best case(Omega Notation, Ω), average case(Theta Notation, θ), 
+and worst case(Big Oh Notation, Ο) performance of an algorithm.
+
+<----------------------------------------------------------------------------------------------------------------------------->
+
+5. What is hashmap in data structure?
+Hashmap is a data structure that uses an implementation of a hash table data structure which allows access to data in constant time (O(1)) 
+complexity if you have the key
+<----------------------------------------------------------------------------------------------------------------------------------->
