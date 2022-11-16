@@ -1,0 +1,57 @@
+1. What is the requirement for an object to be used as key or value in HashMap?
+The key or value object that gets used in the hashmap must implement equals() and hashcode() method.
+The hash code is used when inserting the key object into the map and the equals method is used when trying to retrieve a value from the map.
+
+<---------------------------------------------------------------------------------------------------------------------------------------->
+
+2. How does HashMap handle collisions in Java?
+The java.util.HashMap class in Java uses the approach of chaining to handle collisions. 
+In chaining, if the new values with the same key are attempted to be pushed, then these values are stored in a linked list
+stored in a bucket of the key as a chain along with the existing value.
+In the worst-case scenario, it can happen that all keys might have the same hashcode, 
+which will result in the hash table turning into a linked list. In this case, searching a value will take O(n) complexity 
+as opposed to O(1) time due to the nature of the linked list. Hence, care has to be taken while selecting hashing algorithm.
+
+<---------------------------------------------------------------------------------------------------------------------------------------------->
+
+3. What is the time complexity of basic operations get() and put() in HashMap class?
+The time complexity is O(1) assuming that the hash function used in the hash map distributes elements uniformly among the buckets.
+
+<------------------------------------------------------------------------------------------------------------------------------------------------>
+
+4. What is binary tree data structure? What are the applications for binary trees?
+A binary tree is a data structure that is used to organize data in a way that allows for efficient retrieval and manipulation. 
+It is a data structure that uses two nodes, called leaves and nodes, to represent the data. 
+The leaves represent the data and the nodes represent the relationships between the leaves. 
+Each node has two children, called siblings, and each child has one parent. 
+The parent is the node that is closest to the root of the tree. When a node is deleted from the tree, it is deleted from both its child and its parent.
+
+Following are some applications for binary tree data structure:
+It's widely used in computer networks for storing routing table information.
+Decision Trees.
+Expression Evaluation.
+Database indices.
+
+<----------------------------------------------------------------------------------------------------------------------------------------------------->
+
+5. What is binary search tree data structure? What are the applications for binary search trees?
+A binary search tree is a data structure that stores items in sorted order. In a binary search tree, each node stores a key and a value. 
+The key is used to access the item and the value is used to determine whether the item is present or not. 
+
+The key can be any type of value such as an integer, floating point number, character string, or even a combination of these types.
+The value can be any type of items such as an integer, floating point number, character string, or even a combination of these types. 
+When a node is added to the tree, its key is used to access the item stored at that node. 
+When a node is removed from the tree, its key is used to access the item stored at that node.
+
+A binary search tree is a special type of binary tree that has a specific order of elements in it. It has three basic qualities:
+
+All elements in the left subtree of a node should have a value less than or equal to the parent node's value, and
+All elements in the right subtree of a node should have a value greater than or equal to the parent node's value.
+Both the left and right subtrees must be binary search trees too.
+
+Following are some applications for binary tree data structure:
+It is used for indexing and multi-level indexing.
+It is used for implementing various search algorithms.
+It is helpful in organizing a sorted stream of data.
+
+<------------------------------------------------------------------------------------------------------------------------------------------------------>
