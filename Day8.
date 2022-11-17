@@ -1,0 +1,111 @@
+1. What is graph data structure and its representations? What are the applications for graphs?
+A graph is a type of non-linear data structure made up of nodes and edges. The nodes are also known as vertices,
+and edges are lines or arcs that connect any two nodes in the graph.
+The following are the two most common graph representations:
+
+1. Adjacency Matrix: Adjacency Matrix is a two-dimensional array with the dimensions V x V, where V is the number of vertices in a graph.
+Representation is simpler to implement and adhere to. It takes O(1) time to remove an edge.
+Queries such as whether there is an edge from vertex 'u' to vertex 'v' are efficient and can be completed in O(1).
+One of the cons of this representation is that even if the graph is sparse (has fewer edges), it takes up the same amount of space. 
+Adding a vertex takes O(V^2). It also takes O(V) time to compute all of a vertex's neighbours, which is not very efficient.
+
+2. Adjacency List: In this method, each Node holds a list of Nodes that are directly connected to that vertex. 
+Each node at the end of the list is connected with null values to indicate that it is the last node in the list. 
+This saves space O(|V|+|E|). In the worst-case scenario, a graph can have C(V, 2) edges, consuming O(V^2) space.
+It is simpler to add a vertex. It takes the least amount of time to compute all of a vertex's neighbours.
+One of the cons of this representation is that queries such as "is there an edge from vertex u to vertex v?" are inefficient
+and take O (V) in the worst case.
+
+<-------------------------------------------------------------------------------------------------------------------------------------------------->
+
+2. What is the difference between the Breadth First Search (BFS) and Depth First Search (DFS)?
+Breadth First Search (BFS)::
+It stands for “Breadth First Search”
+BFS (Breadth First Search) finds the shortest path using the Queue data structure.
+We walk through all nodes on the same level before passing to the next level in BFS.
+When compared to DFS, BFS is slower.
+BFS performs better when the target is close to the source.
+BFS necessitates more memory.
+Nodes that have been traversed multiple times are removed from the queue.
+Backtracking is not an option in BFS.
+It is based on the FIFO principle (First In First Out).	
+
+Depth First Search (DFS)::
+It stands for “Depth First Search”
+DFS (Depth First Search) finds the shortest path using the Stack data structure.
+DFS begins at the root node and proceeds as far as possible through the nodes until we reach the node with no unvisited nearby nodes.
+When compared to BFS, DFS is faster.
+DFS performs better when the target is far from the source.
+DFS necessitates less memory.
+When there are no more nodes to visit, the visited nodes are added to the stack and then removed.
+The DFS algorithm is a recursive algorithm that employs the concept of backtracking.
+It is based on the LIFO principle (Last In First Out).
+
+<------------------------------------------------------------------------------------------------------------------------------------------------>
+
+3. What is AVL tree data structure, its operations, and its rotations? What are the applications for AVL trees?
+AVL trees are height balancing binary search trees named after their inventors Adelson, Velski, and Landis. 
+The AVL tree compares the heights of the left and right subtrees and ensures that the difference is less than one. 
+This distinction is known as the Balance Factor.
+BalanceFactor = height(left-subtree) − height(right-subtree)
+We can perform the following two operations on AVL tree:
+
+Insertion: Insertion in an AVL tree is done in the same way that it is done in a binary search tree. However, it may cause a violation in the AVL tree property, requiring the tree to be balanced. Rotations can be used to balance the tree.
+Deletion: Deletion can also be performed in the same manner as in a binary search tree. Because deletion can disrupt the tree's balance, various types of rotations are used to rebalance it.
+An AVL tree can balance itself by performing the four rotations listed below:
+
+Left rotation: When a node is inserted into the right subtree of the right subtree and the tree becomes unbalanced, we perform a single left rotation.
+Right rotation: If a node is inserted in the left subtree of the left subtree, the AVL tree may become unbalanced. The tree then requires right rotation.
+Left-Right rotation: The RR rotation is performed first on the subtree, followed by the LL rotation on the entire tree.
+Right-Left rotation: The LL rotation is performed first on the subtree, followed by the RR rotation on the entire tree.
+Following are some real-time applications for AVL tree data structure:
+
+AVL trees are typically used for in-memory sets and dictionaries.
+AVL trees are also widely used in database applications where there are fewer insertions and deletions but frequent data lookups are required.
+Apart from database applications, it is used in applications that require improved searching.
+
+<-------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+4. What is a B-tree data structure? What are the applications for B-trees?
+The B Tree is a type of m-way tree that is commonly used for disc access. A B-Tree with order m can only have m-1 keys and m children.
+One of the primary reasons for using a B tree is its ability to store a large number of keys in a single 
+node as well as large key values while keeping the tree's height relatively small.
+A B-tree of order 4 is shown below in the image:
+Following are the key properties of a B-tree data structure:
+
+All of the leaves are at the same height.
+The term minimum degree 't' describes a B-Tree. The value of t is determined by the size of the disc block.
+Except for root, every node must have at least t-1 keys. The root must contain at least one key.
+All nodes (including root) can have no more than 2*t - 1 keys.
+The number of children of a node is equal to its key count plus one.
+A node's keys are sorted in ascending order. The child of two keys k1 and k2 contains all keys between k1 and k2.
+In contrast to Binary Search Tree, B-Tree grows and shrinks from the root.
+Following are real-time applications of a B-Tree data structure:
+
+It is used to access data stored on discs in large databases.
+Using a B tree, you can search for data in a data set in significantly less time.
+The indexing feature allows for multilevel indexing.
+The B-tree approach is also used by the majority of servers.
+
+<--------------------------------------------------------------------------------------------------------------------------------------------->
+
+5. Define Segment Tree data structure and its applications.
+A segment Tree is a binary tree that is used to store intervals or segments. The Segment Tree is made up of nodes that represent intervals.
+Segment Tree is used when there are multiple range queries on an array and changes to array elements.
+The segment tree of array A[7] will look like this:
+Following are key operations performed on the Segment tree data structure:
+
+Building Tree: In this step, we create the structure and initialize the segment tree variable.
+Updating the Tree: In this step, we change the tree by updating the array value at a point or over an interval.
+Querying Tree: This operation can be used to run a range query on the array.
+Following are real-time applications for Segment Tree:
+
+Used to efficiently list all pairs of intersecting rectangles from a list of rectangles in the plane.
+The segment tree has become popular for use in pattern recognition and image processing.
+Finding range sum/product, range max/min, prefix sum/product, etc
+Computational geometry
+Geographic information systems
+Static and Dynamic RMQ (Range Minimum Query)
+Storing segments in an arbitrary manner.
+
+<----------------------------------------------------------------------------------------------------------------------------------------------------->
