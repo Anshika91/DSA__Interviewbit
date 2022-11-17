@@ -1,0 +1,83 @@
+1. What are tree traversals?
+Tree traversal is the process of visiting all the nodes of a tree. Since the root (head) is the first node and all nodes are connected via edges (or links) we always start with that node. There are three ways which we use to traverse a tree −
+
+1. Inorder Traversal:
+Algorithm:
+Step 1. Traverse the left subtree, i.e., call Inorder(root.left)
+Step 2. Visit the root.
+Step 3. Traverse the right subtree, i.e., call Inorder(root.right)
+Uses: In binary search trees (BST), inorder traversal gives nodes in ascending order.
+
+2. Preorder Traversal:
+Algorithm:
+Step 1. Visit the root.
+Step 2. Traverse the left subtree, i.e., call Preorder(root.left)
+Step 3. Traverse the right subtree, i.e., call Preorder(root.right)
+Uses: Preorder traversal is commonly used to create a copy of the tree.
+It is also used to get prefix expression of an expression tree.
+
+ 3. Postorder Traversal:
+Algorithm:
+Step 1. Traverse the left subtree, i.e., call Postorder(root.left)
+Step 2. Traverse the right subtree, i.e., call Postorder(root.right)
+Step 3. Visit the root.
+
+Uses: Postorder traversal is commonly used to delete the tree.
+It is also useful to get the postfix expression of an expression tree.
+
+Inorder Traversal => Left, Root, Right : [4, 2, 5, 1, 3]
+Preorder Traversal => Root, Left, Right : [1, 2, 4, 5, 3]
+Postorder Traversal => Left, Right, Root : [4, 5, 2, 3, 1]
+
+<-------------------------------------------------------------------------------------------------------------------------------------------->
+
+2. What is a deque data structure and its types? What are the applications for deque?
+A deque can be thought of as an array of items, but with one important difference: Instead of pushing and popping items off the end to make room, 
+deques are designed to allow items to be inserted at either end. This property makes deques well-suited for performing tasks such as 
+keeping track of inventory, scheduling tasks, or handling large amounts of data.
+
+There are two types of deque:
+Input Restricted Deque: Insertion operations are performed at only one end while deletion is performed at both ends in the input restricted queue.
+
+Output Restricted Deque: Deletion operations are performed at only one end while insertion is performed at both ends in the output restricted queue.
+
+Following are some real-time applications for deque data structure: 
+It can be used as both stack and queue, as it supports all the operations for both data structures.
+Web browser’s history can be stored in a deque.
+Operating systems job scheduling algorithm.
+
+<-------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+3. What are some key operations performed on the Deque data structure?
+Following are the key operations available deque:
+
+insertFront(): This adds an element to the front of the Deque.
+insertLast(): This adds an element to the rear of the Deque.
+deleteFront(): This deletes an element from the front of the Deque.
+deleteLast():This deletes an element from the front of the Deque.
+getFront(): This gets an element from the front of the Deque. 
+getRear(): This gets an element from the rear of the Deque. 
+isEmpty(): This checks whether Deque is empty or not.
+isFull(): This checks whether Deque is full or not.
+
+<--------------------------------------------------------------------------------------------------------------------------------------->
+
+4. What is a priority queue? What are the applications for priority queue?
+Priority Queue is an abstract data type that is similar to a queue in that each element is assigned a priority value.
+The order in which elements in a priority queue are served is determined by their priority (i.e., the order in which they are removed). 
+Following are some real-time applications for priority queue:
+
+Used in graph algorithms like Dijkstra, Prim’s Minimum spanning tree etc.
+Huffman code for data compression
+Finding Kth Largest/Smallest element
+
+<------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+5. Compare different implementations of priority queue
+The following table contains an asymptotic analysis of different implementations of a priority queue:
+Operations	peek	insert	delete
+Linked List	O(1)	O(n)	O(1)
+Binary Heap	O(1)	O(log n)	O(log n)
+Binary Search Tree	O(1)	O(log n)	O(log n)
+
+<----------------------------------------------------------------------------------------------------------------------------------------------------------->
