@@ -1,0 +1,128 @@
+1. Define Trie data structure and its applications
+The word "Trie" is an abbreviation for "retrieval." Trie is a data structure that stores a set of strings as a sorted tree.
+Each node has the same number of pointers as the number of alphabet characters. 
+It can look up a word in the dictionary by using its prefix.
+Assuming that all strings are formed from the letters 'a' to 'z' in the English alphabet, each trie node can have a maximum of 26 points.
+
+Trie is also referred to as the digital tree or the prefix tree. The key to which a node is connected is determined by its position in the Trie. 
+Trie allows us to insert and find strings in O(L) time, where L is the length of a single word. 
+This is clearly faster than BST. Because of how it is implemented, this is also faster than Hashing.
+There is no need to compute a hash function. There is no need to handle collisions (like we do in open addressing and separate chaining)
+
+Another benefit of Trie is that we can easily print all words in alphabetical order, which is not easy with hashing. 
+Trie can also perform prefix search (or auto-complete) efficiently.
+
+he main disadvantage of tries is that they require a large amount of memory to store the strings.
+We have an excessive number of node pointers for each node 
+Following are some real-time applications for Trie data structure:
+
+Auto-Complete and Search for Search Engines
+Genome Analysis
+Data Analytics
+Browser History
+Spell Checker
+
+<------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+2. Define Red-Black Tree and its applications
+Red Black Trees are a type of self-balancing binary search tree. Rudolf Bayer invented it in 1972 and dubbed it "symmetric binary B-trees."
+A red-black tree is a Binary tree in which each node has a colour attribute, either red or black. 
+By comparing the node colours on any simple path from the root to a leaf,
+red-black trees ensure that no path is more than twice as long as any other, ensuring that the tree is generally balanced.
+Red-black trees are similar to binary trees in that they both store their data in two's complementary binary formats. 
+However, red-black trees have one important advantage over binary trees: they are faster to access. 
+Because red-black trees are so fast to access, they are often used to store large amounts of data.
+Red-black trees can be used to store any type of data that can be represented as a set of values.
+
+Every Red-Black Tree Obeys the Following Rules: 
+
+Every node is either red or black.
+The tree's root is always black.
+There are no two red nodes that are adjacent.
+There is the same number of black nodes on every path from a node to any of its descendant's NULL nodes.
+All of the leaf nodes are black.
+Following are some real-time applications for the Red-Black Tree data structure:
+
+The majority of self-balancing BST library functions in C++ or Java use Red-Black Trees.
+It is used to implement Linux CPU Scheduling.
+It is also used to reduce time complexity in the K-mean clustering algorithm in machine learning.
+MySQL also employs the Red-Black tree for table indexes in order to reduce searching and insertion time.
+
+<------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+3. Which data structures are used for implementing LRU cache?
+LRU cache or Least Recently Used cache allows quick identification of an element that hasn’t been put to use for the longest time by
+organizing items in order of use. In order to achieve this, two data structures are used:
+
+Queue – This is implemented using a doubly-linked list. The maximum size of the queue is determined by the cache size, i.e by the total number of available frames. 
+The least recently used pages will be near the front end of the queue whereas the most recently used pages will be towards the rear end of the queue.
+Hashmap – Hashmap stores the page number as the key along with the address of the corresponding queue node as the value.
+
+<-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+4. What is a heap data structure?
+Heap is a special tree-based non-linear data structure in which the tree is a complete binary tree. A binary tree is said to be complete if all levels are completely filled except possibly the last level and the last level has all elements as left as possible. Heaps are of two types:
+
+Max-Heap:
+In a Max-Heap the data element present at the root node must be the greatest among all the data elements present in the tree.
+This property should be recursively true for all sub-trees of that binary tree.
+Min-Heap:
+In a Min-Heap the data element present at the root node must be the smallest (or minimum) among all the data elements present in the tree.
+This property should be recursively true for all sub-trees of that binary tree.
+
+<------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+5. Write a program to remove duplicates from a sorted array in place?
+Input: {1, 1, 1, 2, 3, 3, 6, 6, 7}
+Output: {1, 2, 3, 6, 7}
+Explanation: The given input has only 1,2,3,6, and 7 as unique elements, hence the output only lists them out.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution{
+public:
+    //function that takes an array and its size as arguments
+    int removeDuplicates(int a[],int n){
+        int index=0;
+        for(int i=1;i<n;i++) {
+        
+            if(a[i]!=a[index]) { //change index
+                index++; //swap next line
+                a[index]=a[i]; 
+            } 
+          }
+          return index+1;
+    }
+};
+
+int main()
+{
+    int anshii;
+    //taking the number of test cases from user
+    cin>>anshii;
+    //running the loop for all test cases
+    while(anshii--)
+    {
+        int N;
+        //taking size input from user
+        cin>>N;
+        int a[N];
+        //taking array input from user
+        for(int i=0;i<N;i++)
+        {
+            cin>>a[i];
+        }
+        Solution ob;
+        //calling the removeDuplicates in the Solution class
+        int n = ob.removeDuplicates(a,N);
+        //printing the array after removing duplicates
+        for(int i=0;i<n;i++)
+            cout<<a[i]<<" ";
+            cout<<endl;
+        }
+}
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+<----------------------------------------------------------------------------------------------------------------------------------------------------------------->
