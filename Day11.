@@ -1,0 +1,231 @@
+1. Write a function to merge two sorted binary search tree
+Input:
+
+First BST 
+
+       7
+
+    /     \
+
+   5       9
+
+Second BST
+
+    4
+
+  /   \
+
+3       12
+
+Output: 3 4 5 6 7 9 12
+
+//Function to return a list of integers denoting the node 
+//values of both the BST in a sorted order.
+    void inorder(Node*root,vector<int>&v){
+        if(root==NULL)
+            return;
+        inorder(root->left,v);
+        v.push_back(root->data);
+        inorder(root->right,v);
+    }
+    vector<int> merge(vector<int>v1,vector<int>v2){
+        vector<int>v;
+        int n1=v1.size(),n2=v2.size(),i=0,j=0;
+        while(i<n1&&j<n2){
+            if(v1[i]>v2[j]){
+                v.push_back(v2[j]);
+                j++;
+            }
+            else{
+                v.push_back(v1[i]);
+                i++;
+            }
+        }
+        while(i<n1){
+            v.push_back(v1[i]);
+            i++;
+        }
+        while(j<n2){
+            v.push_back(v2[j]);
+            j++;
+        }
+        return v;
+    }
+    vector<int> merge(Node *root1, Node *root2)
+    {
+       vector<int>v1,v2;
+       inorder(root1,v1);
+       inorder(root2,v2);
+       return merge(v1,v2);
+    }
+Time Complexity: O(m+n) 
+Space Complexity: O(height of the first tree + height of the second tree)
+
+<---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+2. Write a function to print all unique rows of the given matrix.
+Input:
+
+     {{1, 1, 1, 0, 0},
+
+      {0, 1, 0, 0, 1},
+
+      {1, 0, 1, 1, 0},
+
+      {0, 1, 0, 0, 1},
+
+      {1, 1, 1, 0, 0}}
+
+
+Output:
+
+    {{1, 1, 1, 0, 0},
+
+     {0, 1, 0, 0, 1},
+
+     {1, 0, 1, 1, 0}}
+
+vector<vector<int>> uniqueRow(int M[MAX][MAX],int row,int col)
+{
+set<vector<int>> st;
+vector<vector<int>> v;
+
+for(int i=0; i<row; i++) {
+    vector<int> v1;
+    for(int j=0; j<col; j++) {
+        v1.push_back(M[i][j]);
+    }
+    if(st.count(v1) == 0) {
+         v.push_back(v1);
+         st.insert(v1);
+    }
+}
+
+return v;
+}
+
+Time Complexity: O( ROW x COL )
+Space Complexity: O( ROW )
+
+<----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+3. Write a function to find number of subarrays with product less than K
+Input: arr = [1, 6, 2, 3, 2, 1], k = 12
+Output: 11
+int numSubarrayProductLessThanK(vector<int>& nums, int k) {
+        int ans=0;
+        int pdt=1;
+        int left=0,right=0;
+        while(right<=nums.size()-1){
+            
+            pdt*=nums[right];
+            while(pdt>=k and left<nums.size()){
+                pdt/=nums[left];
+                left++;
+                
+            }
+            if(right-left>=0)
+            ans+=right-left+1;//since on adding a new element new subarrays formed is r-i+1;
+            right++;
+            
+        }
+        return ans;
+    }
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+<------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+4. Find the subsequence of length 3 with the highest product from a sequence of non-negative integers, with the elements in increasing order.
+Input: n = 8 arr[ ] = {6, 7, 10, 1, 2, 3, 11, 12}
+Output: {10, 11, 12}
+The three increasing elements of the given arrays are 10, 11, and 12, which form a three-size subsequence with the highest product.
+
+ vector<int> maxProductSubsequence(int *a , int n) 
+    { 
+        set<int> s;
+        long long largestOnLeft[n];
+        for(int i=0;i<n;i++)
+        {   
+            s.insert(a[i]);
+            auto it=s.lower_bound(a[i]);
+            if(it==s.begin())
+            {
+                largestOnLeft[i]=-1;
+                continue;
+            }
+            it--;
+            largestOnLeft[i]=*it;
+        }
+        int m=0;
+        long long p=INT_MIN;
+        vector<int> result(3);
+        result[0]=-1;
+        for(int i=n-1;i>=0;i--)
+        {   
+          if(a[i]>=m){
+          m=a[i];}
+          else
+          {
+              if(largestOnLeft[i] !=-1)
+              {
+                  if(largestOnLeft[i]*a[i]*m >p)
+                  {
+                      p=largestOnLeft[i]*a[i]*m;
+                      result[0]=largestOnLeft[i];
+                      result[1]=a[i];
+                      result[2]=m;
+                  }
+              }
+          }
+        }
+        return v;
+    }
+Time Complexity: O(nlog(n))
+Space Complexity: O(n)
+
+<------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+5. Write a function to implement Quicksort on Doubly Linked List
+Input: 8<->10<->1<->7<->6
+Output: 1<->6<->7<->8<->10
+class Solution{
+public:
+    Node* partition(Node *l, Node *h){
+        //Your code goes here
+        Node*temp = h;
+        Node*tt = l;
+        Node*first = l;
+        
+        while(tt != h){
+              if(tt->data <= temp->data){
+                  swap(first->data, tt->data);
+                  first = first->next;
+              }
+              tt = tt -> next;
+        }
+        swap(first-> data, h->data);
+        return first;
+    
+    }
+};
+
+void _quickSort(struct Node* l, struct Node *h)
+{
+    if (h != NULL && l != h && l != h->next)
+    {
+        Solution ob;
+        struct Node *p = ob.partition(l, h);
+        _quickSort(l, p->prev);
+        _quickSort(p->next, h);
+    }
+}
+ 
+void quickSort(struct Node *head)
+{
+    struct Node *h = lastNode(head);
+    _quickSort(head, h);
+}
+Time Complexity: O(n^2) in the worst case when the list is already sorted. O(nlog(n)) in the best and average case.
+Space Complexity: O(n)
+
+<-------------------------------------------------------------------------------------------------------------------------------------------------------------->
